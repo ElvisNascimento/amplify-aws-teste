@@ -1,0 +1,1 @@
+# amplify-aws-teste
