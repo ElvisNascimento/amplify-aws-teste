@@ -1,5 +1,5 @@
 {
-  "name": "app-amplify",
+  "name": "amplify-aws-teste",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -18,6 +18,8 @@
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
+    "amplify-aws-teste": "file:",
+    "app-amplify": "file:",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
