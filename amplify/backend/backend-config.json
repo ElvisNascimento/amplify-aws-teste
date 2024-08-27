@@ -1,0 +1,63 @@
+{
+  "api": {
+    "api314e2654": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "amplifyawstesteb282dcc7"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "function": {
+    "amplifyawstesteb282dcc7": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributeEnvMap": {
+            "Arn": "TABLE_ARN",
+            "Name": "TABLE_NAME"
+          },
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "storage",
+          "resourceName": "apielvis"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_amplifyawstesteb282dcc7_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "amplifyawstesteb282dcc7"
+        }
+      ]
+    },
+    "AMPLIFY_function_amplifyawstesteb282dcc7_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "amplifyawstesteb282dcc7"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "apielvis": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label for="inputNome">Nome:</label>
+    <input type="text" id="inputNome" formControlName="inputNome" required>
+    <label for="inputDescricao">Descricao:</label>
+    <input type="text" id="inputDescricao" formControlName="inputDescricao" required>
+    
+    <button type="submit" [disabled]="form.invalid">Add</button>
+  </form>
+  <hr>
+
+<h3>Itens no Banco de Dados</h3>
+<ul *ngIf="resp && resp.length > 0">
+  <li *ngFor="let item of resp">
+    <strong>{{ item.nome }}</strong> : {{ item.descricao }}
+    <button (click)="deleteItem(item.id)">Excluir</button>
+  </li>
+</ul>
+<p *ngIf="!resp || resp.length === 0">Nenhum item encontrado.</p>
