@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { get, post, del, put } from 'aws-amplify/api';
 import { v4 as uuidv4 } from 'uuid';
+import { DataStore } from '@aws-amplify/datastore';
 
 @Component({
   selector: 'app-home',
@@ -151,14 +152,15 @@ export class HomeComponent implements OnInit {
   }
 
   async deleteItem(id: string) {
-    try {
+    try {      
       const restOperation = del({
         apiName: 'apiatlanta',
         path: `/produtos/${id}`
       });
+      await restOperation.response;
 
       await this.getTodo();
-      await restOperation.response;
+
       console.log('DELETE call succeeded');
     } catch (e:any) {
       console.log('DELETE call failed: ', e.response.body);
