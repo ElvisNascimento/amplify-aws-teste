@@ -6,14 +6,14 @@ const awsmobile = {
     "aws_dynamodb_all_tables_region": "sa-east-1",
     "aws_dynamodb_table_schemas": [
         {
-            "tableName": "elvistable-dev",
+            "tableName": "produtos-dev",
             "region": "sa-east-1"
         }
     ],
     "aws_cloud_logic_custom": [
         {
-            "name": "api314e2654",
-            "endpoint": "https://pvcz3g5gw5.execute-api.sa-east-1.amazonaws.com/dev",
+            "name": "apiatlanta",
+            "endpoint": "https://cumy1yh04d.execute-api.sa-east-1.amazonaws.com/dev",
             "region": "sa-east-1"
         }
     ]

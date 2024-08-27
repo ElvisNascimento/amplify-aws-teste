@@ -16,13 +16,13 @@
     "s3Key": {
       "Type": "String"
     },
-    "storageapielvisName": {
+    "storagedynamod0784fe1Name": {
       "Type": "String",
-      "Default": "storageapielvisName"
+      "Default": "storagedynamod0784fe1Name"
     },
-    "storageapielvisArn": {
+    "storagedynamod0784fe1Arn": {
       "Type": "String",
-      "Default": "storageapielvisArn"
+      "Default": "storagedynamod0784fe1Arn"
     }
   },
   "Conditions": {
@@ -55,12 +55,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "amplifyawstesteb282dcc7",
+            "funcaolambda",
             {
               "Fn::Join": [
                 "",
                 [
-                  "amplifyawstesteb282dcc7",
+                  "funcaolambda",
                   "-",
                   {
                     "Ref": "env"
@@ -97,12 +97,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "amplifyawstesteLambdaRoled695d1f2",
+            "amplifyawstesteLambdaRole815b68e6",
             {
               "Fn::Join": [
                 "",
                 [
-                  "amplifyawstesteLambdaRoled695d1f2",
+                  "amplifyawstesteLambdaRole815b68e6",
                   "-",
                   {
                     "Ref": "env"
@@ -182,14 +182,14 @@
               ],
               "Resource": [
                 {
-                  "Ref": "storageapielvisArn"
+                  "Ref": "storagedynamod0784fe1Arn"
                 },
                 {
                   "Fn::Join": [
                     "/",
                     [
                       {
-                        "Ref": "storageapielvisArn"
+                        "Ref": "storagedynamod0784fe1Arn"
                       },
                       "index/*"
                     ]

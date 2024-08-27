@@ -1,9 +1,9 @@
 {
   "version": 1,
   "paths": {
-    "/items": {
-      "name": "/items",
-      "lambdaFunction": "amplifyawstesteb282dcc7",
+    "/produtos": {
+      "name": "/produtos",
+      "lambdaFunction": "funcaolambda",
       "permissions": {
         "setting": "open"
       }

@@ -1,6 +1,6 @@
 {
   "api": {
-    "api314e2654": {
+    "apiatlanta": {
       "dependsOn": [
         {
           "attributes": [
@@ -8,7 +8,7 @@
             "Arn"
           ],
           "category": "function",
-          "resourceName": "amplifyawstesteb282dcc7"
+          "resourceName": "funcaolambda"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -16,7 +16,7 @@
     }
   },
   "function": {
-    "amplifyawstesteb282dcc7": {
+    "funcaolambda": {
       "build": true,
       "dependsOn": [
         {
@@ -29,7 +29,7 @@
             "Arn"
           ],
           "category": "storage",
-          "resourceName": "apielvis"
+          "resourceName": "dynamod0784fe1"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -37,25 +37,25 @@
     }
   },
   "parameters": {
-    "AMPLIFY_function_amplifyawstesteb282dcc7_deploymentBucketName": {
+    "AMPLIFY_function_funcaolambda_deploymentBucketName": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "amplifyawstesteb282dcc7"
+          "resourceName": "funcaolambda"
         }
       ]
     },
-    "AMPLIFY_function_amplifyawstesteb282dcc7_s3Key": {
+    "AMPLIFY_function_funcaolambda_s3Key": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "amplifyawstesteb282dcc7"
+          "resourceName": "funcaolambda"
         }
       ]
     }
   },
   "storage": {
-    "apielvis": {
+    "dynamod0784fe1": {
       "providerPlugin": "awscloudformation",
       "service": "DynamoDB"
     }

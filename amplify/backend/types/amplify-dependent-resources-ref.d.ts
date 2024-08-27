@@ -1,13 +1,13 @@
 export type AmplifyDependentResourcesAttributes = {
   "api": {
-    "api314e2654": {
+    "apiatlanta": {
       "ApiId": "string",
       "ApiName": "string",
       "RootUrl": "string"
     }
   },
   "function": {
-    "amplifyawstesteb282dcc7": {
+    "funcaolambda": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",
@@ -16,12 +16,14 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "storage": {
-    "apielvis": {
+    "dynamod0784fe1": {
       "Arn": "string",
       "Name": "string",
       "PartitionKeyName": "string",
       "PartitionKeyType": "string",
       "Region": "string",
+      "SortKeyName": "string",
+      "SortKeyType": "string",
       "StreamArn": "string"
     }
   }

@@ -1,0 +1,14 @@
+{
+  "resourceName": "dynamod0784fe1",
+  "tableName": "produtos",
+  "partitionKey": {
+    "fieldName": "id",
+    "fieldType": "string"
+  },
+  "sortKey": {
+    "fieldName": "nome",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}
