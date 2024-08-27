@@ -166,12 +166,12 @@ export class HomeComponent implements OnInit {
       console.log('DELETE call failed: ', e.response.body);
     }
   }
-
   performSearch(event: any) {
     const searchValue = event.target.value.toLowerCase();
-    this.filteredResp = this.resp.filter((item: any) =>
-      item.nome.toLowerCase().includes(searchValue) ||
-      item.descricao.toLowerCase().includes(searchValue)
-    );
-  }
+    this.filteredResp = this.resp.filter((item: any) => {
+      return Object.values(item).some((val: any) => {
+        return val !== null && val !== undefined && val.toString().toLowerCase().includes(searchValue);
+      });
+    });
+  }  
 }

@@ -9,17 +9,37 @@
     </div>
     <!-- Lista de itens -->
     <div *ngIf="filteredResp?.length > 0">
-        <div *ngFor="let item of filteredResp">
-            <div class="item">
-                <h3>{{ item.nome }} - {{ item.descricao }}</h3>
-                <div class="botoes">
-                    <button class="edit-button" (click)="showEditDialog(item.id)">Editar</button>
-                    <button class="delete-button" (click)="deleteItem(item.id)">Deletar</button>
-                </div>
-            </div>
-            <hr>
-        </div>
-    </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Cor</th>
+              <th>Estado UF</th>
+              <th>Marca</th>
+              <th>Num eixos</th>
+              <th>Peso</th>
+              <th>Preço</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody >
+            <tr *ngFor="let item of filteredResp">
+              <td >{{ item.nome }}</td>
+              <td>{{ item.cor }}</td>
+              <td>{{ item.estado_UF }}</td>
+              <td>{{ item.numero_de_eixos }}</td>
+              <td>{{ item.marca }}</td>
+              <td>{{ item.peso }}</td>
+              <td>{{ item.preco }}</td>
+              <td>
+                <button class="edit-button" (click)="showEditDialog(item.id)">Editar</button>
+                <button class="delete-button" (click)="deleteItem(item.id)">Deletar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
 
     <!-- Modal de adição -->
     <div class="modal" [class.show]="displayAddDialog">
