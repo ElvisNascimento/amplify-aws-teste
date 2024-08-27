@@ -105,6 +105,12 @@ h2{
 .delete-button {
   background-color: #dc3545;
 }
+.scrollable-table-container {
+  max-height: 400px; /* Define a altura máxima do contêiner */
+  overflow-y: auto; /* Adiciona barra de rolagem vertical */
+  border: 1px solid #ddd; /* Opcional: adicione uma borda ao redor do contêiner */
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -120,14 +126,10 @@ th {
   background-color: #f2f2f2;
 }
 
-tr:hover {
-  background-color: #f5f5f5;
+tr.item:hover {
+  background-color: #f5f5f5; /* Cor de fundo ao passar o mouse sobre a linha */
 }
 
-.edit-button {
-  margin-right: 8px;
-}
-
-.delete-button {
-  color: rgb(255, 255, 255);
+.edit-button, .delete-button {
+  margin-right: 5px; /* Espaçamento entre os botões */
 }
