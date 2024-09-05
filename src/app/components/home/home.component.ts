@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { get, post, del, put } from 'aws-amplify/api';
+import { get, post, del, patch } from 'aws-amplify/api';
 import { v4 as uuidv4 } from 'uuid';
 import { DataStore } from '@aws-amplify/datastore';
 
@@ -21,14 +21,23 @@ export class HomeComponent implements OnInit {
   selectedItem: any;
 
   constructor(private fb: FormBuilder) {
+
     this.formAdd = this.fb.group({
       inputNome: ['', Validators.required],
-      inputDescricao: ['', Validators.required]
+      inputCor: ['', Validators.required],
+      inputMarca: ['', Validators.required],
+      inputNumero_Eixos: ['', Validators.required],
+      inputPeso: ['', Validators.required],
+      inputPreco: ['', Validators.required]
     });
 
     this.formEdit = this.fb.group({
-      inputNome: ['', Validators.required],
-      inputDescricao: ['', Validators.required]
+      editNome: ['', Validators.required],
+      editCor: ['', Validators.required],
+      editMarca: ['', Validators.required],
+      editNumero_Eixos: ['', Validators.required],
+      editPeso: ['', Validators.required],
+      editPreco: ['', Validators.required]
     });
   }
 
@@ -58,8 +67,7 @@ export class HomeComponent implements OnInit {
     if (this.selectedItem) {
       // Atualiza o formulário de edição com os valores do item
       this.formEdit.patchValue({
-        inputNome: this.selectedItem.nome,
-        inputDescricao: this.selectedItem.descricao
+        editNome: this.selectedItem.nome,
       });
       this.displayEditDialog = true;
     } else {
@@ -74,16 +82,20 @@ export class HomeComponent implements OnInit {
   addItem() {
     const id = uuidv4();
     const nome = this.formAdd.get('inputNome')?.value;
-    const descricao = this.formAdd.get('inputDescricao')?.value;
-    this.post(id, nome, descricao);
+    const cor = this.formAdd.get('inputCor')?.value;
+    const estado = this.formAdd.get('inputEstado')?.value;
+    const marca = this.formAdd.get('inputMarca')?.value;
+    const numEixos = this.formAdd.get('inputNumEixos')?.value;
+    const peso = this.formAdd.get('inputPeso')?.value;
+    this.post(id, nome, cor,estado,marca,numEixos,peso);
   }
 
-  async post(id: string, nome: string, descricao: string) {
+  async post(id: string, nome: string, cor: string, estado: string, marca: string, numEixos: string, peso: string) {
     try {
       const restOperation = post({
         apiName: 'apiatlanta',
         path: '/produtos',
-        options: { body: { id, nome, descricao } }
+        options: { body: { id, nome,cor,estado,marca,numEixos,peso } }
       });
       const response = await restOperation.response;
       console.log('POST call succeeded: ', await response.body.json());
@@ -101,10 +113,18 @@ export class HomeComponent implements OnInit {
       if (index !== -1) {
         this.filteredResp[index] = { ...this.filteredResp[index], ...this.formEdit.value };
       }
-      console.log("nome", this.formEdit.value.inputNome);
-      console.log("descricao", this.formEdit.value.inputDescricao);
+      // console.log("nome", this.formEdit.value.inputNome);
+      // console.log("descricao", this.formEdit.value.inputDescricao);
 
-      this.put(this.selectedItem.id, this.formEdit.value.inputNome, this.formEdit.value.inputDescricao)
+      this.patch(this.selectedItem.id,
+         this.formEdit.value.editNome,
+         this.formEdit.value.editCor,
+         this.formEdit.value.editEstado,
+         this.formEdit.value.editMarca,
+         this.formEdit.value.editNumero_de_Eixos,
+         this.formEdit.value.editPeso,
+         this.formEdit.value.editPreco
+        )
 
       this.hideEditDialog();
     } else {
@@ -112,12 +132,12 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  async put(id: string, nome: string, descricao: string) {
+  async patch(id: string, nome: string, cor: string,marca: string,estado: string,num_eixos: number,peso: number,preco: number) {
     try {
-      const restOperation = put({
+      const restOperation = patch({
         apiName: 'apiatlanta',
         path: `/produtos/${id}`,
-        options: { body: { id, nome, descricao } }
+        options: { body: { id, nome, cor,marca,estado,num_eixos,peso,preco } }
       });
 
       const response = await restOperation.response;

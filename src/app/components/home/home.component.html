@@ -53,8 +53,28 @@
                 <input id="inputNome" type="text" formControlName="inputNome" placeholder="Nome" />
             </div>
             <div class="form-group">
-                <label for="inputDescricao">Descrição</label>
-                <input id="inputDescricao" type="text" formControlName="inputDescricao" placeholder="Descrição" />
+                <label for="inputCor">Cor</label>
+                <input id="inputCor" type="text" formControlName="inputCor" placeholder="Descrição" />
+            </div>
+            <div class="form-group">
+                <label for="editEstado">Estado</label>
+                <input id="editEstado" type="text" formControlName="editEstado" placeholder="Descrição" />
+            </div>
+            <div class="form-group">
+                <label for="inputMarca">Marca</label>
+                <input id="inputMarca" type="text" formControlName="inputMarca" placeholder="Descrição" />
+            </div>
+            <div class="form-group">
+                <label for="inputNumero_de_Eixos">Numero de Eixos</label>
+                <input id="inputNumero_Eixos" type="text" formControlName="inputNumero_Eixos" placeholder="Descrição" />
+            </div>
+            <div class="form-group">
+                <label for="inputPeso">Peso</label>
+                <input id="inputPeso" type="text" formControlName="inputPeso" placeholder="Descrição" />
+            </div>
+            <div class="form-group">
+                <label for="inputPreco">Preço</label>
+                <input id="inputPreco" type="text" formControlName="inputPreco" placeholder="Descrição" />
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn">Adicionar</button>
@@ -71,15 +91,35 @@
         <form [formGroup]="formEdit" (ngSubmit)="editItem()">
             <div class="form-group">
                 <label for="editNome">Nome</label>
-                <input id="editNome" type="text" formControlName="inputNome" placeholder="Nome" />
+                <input id="editNome" type="text" formControlName="editNome" placeholder="Nome" />
             </div>
             <div class="form-group">
-                <label for="editDescricao">Descrição</label>
-                <input id="editDescricao" type="text" formControlName="inputDescricao" placeholder="Descrição" />
+                <label for="editCor">Cor</label>
+                <input id="editCor" type="text" formControlName="editCor" placeholder="Descrição" />
+            </div>
+            <div class="form-group">
+                <label for="editMarca">Marca</label>
+                <input id="editMarca" type="text" formControlName="editMarca" placeholder="Descrição" />
+            </div>
+            <div class="form-group">
+                <label for="editEstado">Estado</label>
+                <input id="editEstado" type="text" formControlName="editEstado" placeholder="Descrição" />
+            </div>
+            <div class="form-group">
+                <label for="editNumero_de_Eixos">Numero de Eixos</label>
+                <input id="editNumero_Eixos" type="text" formControlName="editNumero_Eixos" placeholder="Descrição" />
+            </div>
+            <div class="form-group">
+                <label for="editPeso">Peso</label>
+                <input id="editPeso" type="text" formControlName="editPeso" placeholder="Descrição" />
+            </div>
+            <div class="form-group">
+                <label for="editPreco">Preço</label>
+                <input id="editPreco" type="text" formControlName="editPreco" placeholder="Descrição" />
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn">Salvar</button>
-                <button type="button" class="btn cancel" (click)="hideEditDialog()">Cancelar</button>
+                <button type="submit" class="btn">Adicionar</button>
+                <button type="button" class="btn cancel" (click)="hideAddDialog()">Cancelar</button>
             </div>
         </form>
     </div>
